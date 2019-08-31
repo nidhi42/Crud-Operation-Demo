@@ -3,6 +3,7 @@
   <h1>
    {{ title }}!
   </h1>
+  <!--here add and update data-->
   <h2>Create data:</h2>
   <form action="">
     <div class="form-group">
@@ -17,6 +18,8 @@
      <button type="submit" class="btn btn-default" (click)="updateEmployee()" *ngIf="!hideUpdate">Update</button>
     </form>
 
+
+   <!--list which will be added delted and edited-->
    <h2>read data & (Delete data):</h2>
    <table class="table table-bordered">
     <thead>
@@ -37,7 +40,5 @@
       </tr>
     </tbody>
   </table>
-
- 
 </div>
 
