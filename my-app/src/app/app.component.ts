@@ -9,31 +9,38 @@ export class AppComponent {
   title = 'Angular 2 Crud operation with an array';
   hideUpdate: boolean=true;
 
+  //employees array
   employees = [
   {name: "disha", position: "manager"},
   {name: "megha", position: "ceo"},
   {name: "prerak", position: "cto"},
- 
   ];
+
+  //model declaration
   model:any={};
-  model2:any={};
+
+  //add employee method
   addEmployee(){
     this.employees.push(this.model);
     this.model = {};
     
   }
+
+  //delets employees
   deleteEmployee(i) {
     this.employees.splice(i,1);
     console.log(i);
   }
+
+  //edit employees
   myValue;
   editEmployee(k) {
-  //this.model2.name = this.employees[k].name;
-  //this.model2.position = this.employees[k].position;
   this.model = this.employees[k];
   this.myValue = k;
   this.hideUpdate = false;
   }
+
+  //update employees
   updateEmployee() {  
   this.employees[this.myValue]=this.model;
   this.model="";
