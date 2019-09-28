@@ -6,7 +6,3 @@
   border: 5px solid lightseagreen;
   margin: 7px 0;
 }
-.disable {
-  pointer-events: none;
-  opacity: 0.8;
-}
