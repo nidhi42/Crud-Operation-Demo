@@ -8,22 +8,23 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'Angular 2 Crud operation with an array';
   hideUpdate: boolean=true;
-
+  restrictDelete: boolean;
   //employees array
   employees = [
-  {name: "disha", position: "manager"},
-  {name: "megha", position: "ceo"},
-  {name: "prerak", position: "cto"},
+  {name: "disha", position: "manager", disableDelete:false},
+  {name: "megha", position: "ceo",disableDelete:false},
+  {name: "prerak", position: "cto",disableDelete:false},
   ];
 
   //model declaration
   model:any={};
-
+  
   //add employee method
   addEmployee(){
-    this.employees.push(this.model);
-    this.model = {};
-    
+  if(this.model.name !== undefined && this.model.position !== undefined) {
+     this.employees.push(this.model);
+      this.model = {};
+    }
   }
 
   //delets employees
@@ -35,15 +36,17 @@ export class AppComponent {
   //edit employees
   myValue;
   editEmployee(k) {
-  this.model = this.employees[k];
-  this.myValue = k;
-  this.hideUpdate = false;
+    this.model = this.employees[k];
+    this.model.disableDelete= true;
+    this.myValue = k;
+    this.hideUpdate = false;
   }
 
   //update employees
   updateEmployee() {  
+  this.model.disableDelete=false;
   this.employees[this.myValue]=this.model;
   this.model="";
-   this.hideUpdate = true;
+  this.hideUpdate = true;
   }
 }
