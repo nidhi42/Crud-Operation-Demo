@@ -24,6 +24,8 @@ export class AppComponent {
   if(this.model.name !== undefined && this.model.position !== undefined) {
      this.employees.push(this.model);
       this.model = {};
+    }else {
+    alert("please enter some values in name and position both valuesare required");
     }
   }
 
