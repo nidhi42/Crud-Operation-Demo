@@ -8,11 +8,11 @@
   <form action="">
     <div class="form-group">
       <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" placeholder="Enter Your Name" name="name" [(ngModel)]="model.name">
+      <input type="text" class="form-control" id="name" placeholder="Enter Your Name" name="name" [(ngModel)]="model.name" required>
     </div>
     <div class="form-group">
       <label for="postion">Position:</label>
-      <input type="text" class="form-control" id="position" placeholder="Enter Your Position" name="position"  [(ngModel)]="model.position">
+      <input type="text" class="form-control" id="position" placeholder="Enter Your Position" name="position"  [(ngModel)]="model.position" required>
     </div>
     <button type="submit" class="btn btn-default" (click)="addEmployee()" *ngIf="hideUpdate">Save</button>
      <button type="submit" class="btn btn-default" (click)="updateEmployee()" *ngIf="!hideUpdate">Update</button>
@@ -34,8 +34,8 @@
         <td>{{employee.name}}</td>
         <td>{{employee.position}}</td>
         <td>
-        <a class="btn btn-sucess" (click)="editEmployee(i)">Edit</a>
-        <a class="btn btn-danger" (click)="deleteEmployee(i)">Delete</a>
+        <button class="btn btn-sucess" (click)="editEmployee(i)">Edit</button>
+        <button class="btn btn-danger" (click)="deleteEmployee(i)" [disabled]=employee.disableDelete >Delete</button>
         </td>
       </tr>
     </tbody>
